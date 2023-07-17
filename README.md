@@ -87,10 +87,12 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
         ]
     ],
     
-    // 3. Add the plugin to the toolbar
-    'toolbar' => ['chatgpt'],
-    
-];
+],
+
+// 3. Add the plugin to the toolbar
+'toolbar' => ['chatgpt']
+
+//...
 ```
 
 
