@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb03c33a-1021-4698-8d93-cd5fbb035cea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/chatgpt.js" afterDir="false" />
+    <list default="true" id="fb03c33a-1021-4698-8d93-cd5fbb035cea" name="Changes" comment="First working plugin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/chatgpt.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/chatgpt.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +52,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1689598779551</updated>
-      <workItem from="1689598780665" duration="3869000" />
+      <workItem from="1689598780665" duration="4410000" />
     </task>
+    <task id="LOCAL-00001" summary="First working plugin">
+      <option name="closed" value="true" />
+      <created>1689603168733</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689603168733</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First working plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="First working plugin" />
   </component>
 </project>

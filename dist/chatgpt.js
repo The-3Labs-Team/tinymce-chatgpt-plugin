@@ -15,7 +15,6 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
         });
         PROMPTS.push({text: 'Custom Prompt', value: ''});
 
-
         return editor.windowManager.open({
             title: 'ChatGPT',
             body: {
@@ -31,6 +30,10 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
                         name: 'prompt',
                         label: 'Select a prompt',
                         items: PROMPTS,
+                    },
+                    {
+                        type: 'htmlpanel',
+                        html: `<p style="font-size: 11px;text-align: center;margin-top:12px;">An unofficial plugin for <a href="https://openai.com/" target="_blank">ChatGPT</a>. Made by <a href="https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/tree/main">3Labs</a>. All rights reserved.</p>`
                     }
                 ]
             },
@@ -45,11 +48,18 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
                     primary: true
                 }
             ],
+
+            /**
+             * Set the default input to the current selection
+             */
+            initialData: {
+                chatgpt: tinymce.activeEditor.selection.getContent() ?? '',
+            },
+
             onSubmit: function (api) {
                 var data = api.getData();
                 const input = data.chatgpt;
                 const prompt = data.prompt ?? '';
-
 
                 /**
                  * Get the current selection and set it as the default input
@@ -62,12 +72,6 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
                     max_tokens: OPENAI.max_tokens
                 };
 
-                /**
-                 * Debug the input
-                 */
-                console.log(ChatGPT);
-
-                // editor.insertContent(reply);
                 fetch("https://api.openai.com/v1/completions", {
                     method: "POST",
                     headers: {
@@ -84,7 +88,6 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
                     console.log("something went wrong");
                 });
 
-
                 api.close();
             }
         });
@@ -100,7 +103,7 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
     /* Add a button that opens a window */
     editor.ui.registry.addButton('chatgpt', {
         icon: 'chatgpt',
-        tooltip: 'Add ChatGPT',
+        tooltip: 'ChatGPT',
         onAction: function () {
             /* Open window */
             openDialog();
