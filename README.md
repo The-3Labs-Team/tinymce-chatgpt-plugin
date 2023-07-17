@@ -1,4 +1,4 @@
-# TinyMCE ChatGPT Plugin
+# TinyMCE 6.x ChatGPT Plugin
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/logo-tinyopen.svg" alt="Logo TinyMCE ChatGPT Plugin"></p>
 
 This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
@@ -27,37 +27,70 @@ Anything what ChatGPT can handle
 
 ## Requirements
 
-TinyMCE 6.0 or later
-ChatGPT API key
+* TinyMCE 6.0 or later 
+* ChatGPT API key ([get one](https://openai.com))
 
 ## Installation
 
-This plugin comes as an "external plugin"; however, you can download the .js file and upload it to your host.
+This plugin comes as an _external plugin_; however, you can download the _.js file_ and upload it to your host.
 
-To install, simply edit the init configuration of your TinyMCE as follows:
+To install, simply **edit the init configuration** of your TinyMCE as follows:
+
+```js
+tinymce.init({
+    
+  // 1. Add the ChatGPT plugin
+  plugins: ['chatgpt'],
+
+  // 2. Configure the ChatGPT plugin
+  chatgpt: {
+    apiKey: 'sk-yourapikeyhere', // Your OpenAI API key
+    model: 'text-davinci-003',
+    temperature: 0.5,
+    maxTokens: 150,
+    prompts: [
+      'Translate from English to Italian',
+      'Summarize',
+      'Proofread',
+      'Write a blog post about',
+    ],
+  },
+
+  // 3. Add the ChatGPT button to the toolbar
+  toolbar: ['chatgpt'],
+});
+```
+
+If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murdercode/Nova4-TinymceEditor) you can configure as follows:
 
 ```php
-// TODO: edit to match JS and provide also a PHP version
+<?php
+
 'init' => [
 
-'external_plugins' => [
-'chatgpt' => 'mirrorhere' 
-],
-'toolbar' => 'chatgpt',
-'openai' => [
-            'api_key' => 'sk-yourapikeyhere',
-            'model' => 'text-davinci-003',
-            'temperature' => 0.5,
-            'max_tokens' => 150,
-            'prompts' => [
-                'Translate from English to Italian',
-                'Summarize',
-                'Proofread',
-                'Write a blog post about',
-            ]
-        ],
-
-]
+    // 1. Add the plugin to the list of external plugins
+    'external_plugins' => [
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@main/dist/chatgpt.min.js' 
+    ],
+    
+    // 2. Configure the plugin
+    'openai' => [
+        'api_key' => 'sk-yourapikeyhere', // Your OpenAI API key
+        'model' => 'text-davinci-003',
+        'temperature' => 0.5,
+        'max_tokens' => 150,
+        'prompts' => [
+            'Translate from English to Italian',
+            'Summarize',
+            'Proofread',
+            'Write a blog post about',
+        ]
+    ],
+    
+    // 3. Add the plugin to the toolbar
+    'toolbar' => ['chatgpt'],
+    
+];
 ```
 
 
