@@ -10,10 +10,10 @@ tinymce.PluginManager.add('chatgpt', function(editor, url) {
         /**
          * Create a list of prompts for the select box
          */
-        let PROMPTS = OPENAI.prompts.map(prompt => {
+        let PROMPTS = OPENAI.prompts ? OPENAI.prompts.map(prompt => {
             return {text: prompt, value: `PROMPT: ${prompt}\n`}
-        });
-        PROMPTS.push({text: 'Custom Prompt', value: ''});
+        }) : [];
+        PROMPTS.unshift({text: 'Custom Prompt', value: ''});
 
         return editor.windowManager.open({
             title: 'ChatGPT',
