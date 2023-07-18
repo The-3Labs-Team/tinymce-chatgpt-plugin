@@ -2,6 +2,8 @@
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/logo-tinyopen.svg" alt="Logo TinyMCE ChatGPT Plugin"></p>
 
+[![Lint](https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/actions/workflows/lint.yml/badge.svg)](https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/actions/workflows/lint.yml)
+
 This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/demo.gif" alt="TinyMCE Demo Gif"></p>
