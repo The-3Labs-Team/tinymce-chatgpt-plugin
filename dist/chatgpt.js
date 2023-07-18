@@ -98,7 +98,6 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
           .catch((error) => {
             console.log("something went wrong");
           });
-
       },
     });
   };
