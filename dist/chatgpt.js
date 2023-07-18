@@ -121,6 +121,7 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
       openDialog();
     },
   });
+
   /* Adds a menu item, which can then be included in any menu via the menu/menubar configuration */
   editor.ui.registry.addMenuItem("chatgpt", {
     text: "ChatGPT",
@@ -133,8 +134,8 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
   return {
     getMetadata: function () {
       return {
-        name: "ChatGPT Shortcode",
-        url: "https://github.com/The-3Labs-Team/tinymce-laravel-shortcode-plus",
+        name: "TinyMCE ChatGPT Plugin",
+        url: "https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin",
       };
     },
   };
