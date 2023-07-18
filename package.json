@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "http-server -p 8080",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "http-server": "^14.1.1"
