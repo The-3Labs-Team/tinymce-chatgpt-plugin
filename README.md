@@ -42,11 +42,11 @@ To install, simply **edit the init configuration** of your TinyMCE as follows:
 
 ```js
 tinymce.init({
-
   // 1. Add the plugin to the list of external plugins
-    'external_plugins': {
-        'chatgpt': 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js'
-    },
+  external_plugins: {
+    chatgpt:
+      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js",
+  },
 
   // 2. Configure the ChatGPT plugin
   chatgpt: {
@@ -100,4 +100,3 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
 //...
 ```
- 
