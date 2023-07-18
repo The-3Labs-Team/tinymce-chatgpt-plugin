@@ -1,3 +1,5 @@
+/* global tinymce */
+
 tinymce.PluginManager.add('chatgpt', function (editor) {
   const OPENAI = editor.getParam('openai')
 
