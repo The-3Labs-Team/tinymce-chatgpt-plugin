@@ -33,7 +33,7 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
           },
           {
             type: "htmlpanel",
-            html: `<p style="font-size: 11px;text-align: center;margin-top:12px;">An unofficial plugin for <a href="https://openai.com/" target="_blank">ChatGPT</a>. Made by <a href="https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/tree/main">3Labs</a>. All rights reserved.</p>`,
+            html: `<p style="font-size: 11px;text-align: center;margin-top:12px;">An unofficial plugin for <a href="https://openai.com/" target="_blank">ChatGPT</a>. Made by <a target="_blank" href="https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/tree/main">3Labs</a>. All rights reserved.</p>`,
           },
         ],
       },
@@ -72,6 +72,12 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
           max_tokens: OPENAI.max_tokens,
         };
 
+        // Change button text to "Loading" again
+        api.block("Loading...");
+
+        /**
+         * Make a request to the OpenAI API
+         */
         fetch("https://api.openai.com/v1/completions", {
           method: "POST",
           headers: {
@@ -84,14 +90,15 @@ tinymce.PluginManager.add("chatgpt", function (editor, url) {
           .then((data) => {
             const reply = data.choices[0].text;
             console.log(reply);
-            // editor.selection.collapse();
+            // Insert the reply into the editor
             editor.insertContent(reply);
+            // Close the dialog
+            api.close();
           })
           .catch((error) => {
             console.log("something went wrong");
           });
 
-        api.close();
       },
     });
   };
