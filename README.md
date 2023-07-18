@@ -41,8 +41,11 @@ To install, simply **edit the init configuration** of your TinyMCE as follows:
 
 ```js
 tinymce.init({
-  // 1. Add the ChatGPT plugin
-  plugins: ["chatgpt"],
+
+  // 1. Add the plugin to the list of external plugins
+    'external_plugins' => {
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@main/dist/chatgpt.min.js'
+    },
 
   // 2. Configure the ChatGPT plugin
   chatgpt: {
