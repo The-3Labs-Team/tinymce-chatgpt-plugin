@@ -4,6 +4,7 @@
 
 [![Lint](https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/actions/workflows/lint.yml/badge.svg)](https://github.com/The-3Labs-Team/tinymce-chatgpt-plugin/actions/workflows/lint.yml)
 ![License](https://img.shields.io/github/license/the-3labs-team/tinymce-chatgpt-plugin)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1737eafb663973324bc8/maintainability)](https://codeclimate.com/github/The-3Labs-Team/tinymce-chatgpt-plugin/maintainability)
 
 This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
 
