@@ -1,4 +1,5 @@
 # TinyMCE 6.x ChatGPT Plugin
+
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/logo-tinyopen.svg" alt="Logo TinyMCE ChatGPT Plugin"></p>
 
 This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
@@ -21,14 +22,14 @@ Can be used to write different types of creative content
 Can be used to answer your questions in an informative way
 Anything what ChatGPT can handle
 
-| :warning: WARNING          |
-|:---------------------------|
-| Consider this plugin as a prototype and not suitable for production deployment at this time. Use it only in controlled environments and at your own risk.     |
+| :warning: WARNING                                                                                                                                         |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Consider this plugin as a prototype and not suitable for production deployment at this time. Use it only in controlled environments and at your own risk. |
 
 ## Requirements
 
-* TinyMCE 6.0 or later 
-* ChatGPT API key ([get one](https://openai.com))
+- TinyMCE 6.0 or later
+- ChatGPT API key ([get one](https://openai.com))
 
 ## Installation
 
@@ -38,26 +39,25 @@ To install, simply **edit the init configuration** of your TinyMCE as follows:
 
 ```js
 tinymce.init({
-    
   // 1. Add the ChatGPT plugin
-  plugins: ['chatgpt'],
+  plugins: ["chatgpt"],
 
   // 2. Configure the ChatGPT plugin
   chatgpt: {
-    apiKey: 'sk-yourapikeyhere', // Your OpenAI API key
-    model: 'text-davinci-003',
+    apiKey: "sk-yourapikeyhere", // Your OpenAI API key
+    model: "text-davinci-003",
     temperature: 0.5,
     maxTokens: 150,
     prompts: [
-      'Translate from English to Italian',
-      'Summarize',
-      'Proofread',
-      'Write a blog post about',
+      "Translate from English to Italian",
+      "Summarize",
+      "Proofread",
+      "Write a blog post about",
     ],
   },
 
   // 3. Add the ChatGPT button to the toolbar
-  toolbar: ['chatgpt'],
+  toolbar: ["chatgpt"],
 });
 ```
 
@@ -70,9 +70,9 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
     // 1. Add the plugin to the list of external plugins
     'external_plugins' => [
-        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@main/dist/chatgpt.min.js' 
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@main/dist/chatgpt.min.js'
     ],
-    
+
     // 2. Configure the plugin
     'openai' => [
         'api_key' => 'sk-yourapikeyhere', // Your OpenAI API key
@@ -86,7 +86,7 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
             'Write a blog post about',
         ]
     ],
-    
+
 ],
 
 // 3. Add the plugin to the toolbar
@@ -95,4 +95,6 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 //...
 ```
 
+## Todo
 
+- [ ] Add a loading indicator while ChatGPT is generating the text
