@@ -1,11 +1,7 @@
 name: Lint
 
 # This action works with pull requests and pushes
-on:
-  pull_request:
-  push:
-    branches:
-      - main
+on: [pull_request, push]
 
 jobs:
   eslint:
