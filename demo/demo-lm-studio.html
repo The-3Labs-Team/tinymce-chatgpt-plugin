@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdn.jsdelivr.net/npm/tinymce@7/tinymce.min.js" referrerpolicy="origin"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tinymce@7/skins/ui/oxide/content.min.css" rel="stylesheet">
+  <script>
+    tinymce.init({
+      selector: '#mytextarea',
+      version: '6',
+
+      // 1. Add the plugin to the list of external plugins
+      external_plugins: {
+        chatgpt:
+          "http://127.0.0.1:8080/dist/chatgpt.js",
+      },
+
+      // 2. Configure the ChatGPT plugin
+      openai: {
+        api_key: "lm-studio",
+        // model: "",
+        temperature: 0.5,
+        max_tokens: 150,
+        prompts: [
+          "Translate from English to Italian",
+          "Summarize",
+          "Proofread",
+          "Write a blog post about",
+        ],
+        baseUri: "http://localhost:11434/v1/chat/completions",
+      },
+
+      // 3. Add the ChatGPT button to the toolbar
+      toolbar: ["chatgpt"],
+    });
+  </script>
+</head>
+
+<body>
+<h1>TinyMCE Quick Start Guide</h1>
+<form method="post">
+  <textarea id="mytextarea">Hello, World!</textarea>
+</form>
+</body>
+</html>

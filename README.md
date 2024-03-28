@@ -1,4 +1,4 @@
-# TinyMCE 6.x ChatGPT Plugin
+# TinyMCE ChatGPT Plugin
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/logo-tinyopen.svg" alt="Logo TinyMCE ChatGPT Plugin"></p>
 
@@ -7,7 +7,7 @@
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hy/The-3Labs-Team/tinymce-chatgpt-plugin?label=downloads)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1737eafb663973324bc8/maintainability)](https://codeclimate.com/github/The-3Labs-Team/tinymce-chatgpt-plugin/maintainability)
 
-This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
+This plugin integrates ChatGPT (or your OpenAI compatible LLM) within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/demo.gif" alt="TinyMCE Demo Gif"></p>
 
@@ -19,13 +19,12 @@ ChatGPT is a powerful tool that can help you improve your productivity and the q
 
 ## Features
 
-Support custom prompts defined by you!
-Generates realistic and creative text with the push of a button
-Can be used to generate a variety of text formats
-Can be used to translate languages
-Can be used to write different types of creative content
-Can be used to answer your questions in an informative way
-Anything what ChatGPT can handle
+- 🤖 OpenAI and Custom LLM OpenAI compatible
+- ⚙️ Support custom prompts defined by you!
+- 🧑‍🎨 Generates realistic and creative text with the push of a button
+- 🧬 Can be used to generate a variety of text formats
+- 🈷️ Can be used to translate languages
+- 🙋 Can be used to answer your questions in an informative way
 
 | :warning: WARNING                                                                                                                                         |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,8 +32,9 @@ Anything what ChatGPT can handle
 
 ## Requirements
 
-- TinyMCE 6.0 or later
-- ChatGPT API key ([get one](https://openai.com))
+- TinyMCE 6|7 or later
+- OpenAI API key ([get one here](https://openai.com))
+- (Optional) Custom LLM API
 
 ## Installation
 
@@ -47,21 +47,23 @@ tinymce.init({
   // 1. Add the plugin to the list of external plugins
   external_plugins: {
     chatgpt:
-      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js",
+      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.js",
   },
 
   // 2. Configure the ChatGPT plugin
   openai: {
-    apiKey: "sk-yourapikeyhere", // Your OpenAI API key
-    model: "text-davinci-003",
+    api_key: "sk-yourapikeyhere", // Your OpenAI API key
+    model: "gpt-3.5-turbo",
     temperature: 0.5,
-    maxTokens: 150,
+    max_tokens: 150,
     prompts: [
       "Translate from English to Italian",
       "Summarize",
       "Proofread",
       "Write a blog post about",
     ],
+    // Optional: Add your custom LLM
+    // baseUri: "https://your-llm-endpoint.com",
   },
 
   // 3. Add the ChatGPT button to the toolbar
@@ -78,13 +80,13 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
     // 1. Add the plugin to the list of external plugins
     'external_plugins' => [
-        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js'
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.js'
     ],
 
     // 2. Configure the plugin
     'openai' => [
         'api_key' => 'sk-yourapikeyhere', // Your OpenAI API key
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo',
         'temperature' => 0.5,
         'max_tokens' => 150,
         'prompts' => [
@@ -92,7 +94,9 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
             'Summarize',
             'Proofread',
             'Write a blog post about',
-        ]
+        ],
+        // Optional: Add your custom LLM
+        // 'base_uri' => 'https://your-llm-endpoint.com',
     ],
 
 ],
@@ -102,3 +106,21 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
 //...
 ```
+
+### Breaking Changes from v1 to v2
+
+- We are using the new `/chat/completions` endpoint from OpenAI
+- The `model` default now must be a chat model, like `gpt-3.5-turbo`
+- If you want to use the old `/completion` endpoint, you can use the `baseUri` option to set your custom LLM endpoint like `https://api.openai.com/v1/completions`
+
+### Custom LLM
+
+If you have a custom LLM, you can use it by setting the `baseUri` option in the configuration. The plugin will use this endpoint to generate the text.
+
+```js
+baseUri: "https://your-llm-endpoint.com"
+```
+
+Please note that the custom LLM must be OpenAI compatible and follow the same API as OpenAI.
+Also, the custom LLM must be accessible from the client-side.
+Check the `demo-lm-studio.html` file for an example of how to use a custom LLM.

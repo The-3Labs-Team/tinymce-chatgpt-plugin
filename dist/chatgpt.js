@@ -68,7 +68,7 @@ tinymce.PluginManager.add('chatgpt', function (editor) {
           .then((res) => res.json())
           .then((data) => {
             // Define the reply
-            const reply = data.choices[0].text
+            const reply = data.choices[0].message.content
             // Insert the reply into the editor
             editor.insertContent(reply)
             // Close the dialog
@@ -87,20 +87,25 @@ tinymce.PluginManager.add('chatgpt', function (editor) {
    * @returns {Promise<Response>}
    */
   function getResponseFromOpenAI (prompt) {
-    const ChatGPT = {
+    const baseUri = OPENAI.baseUri || 'https://api.openai.com/v1/chat/completions'
+
+    const requestBody = {
       model: OPENAI.model,
-      prompt,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }],
       temperature: OPENAI.temperature,
       max_tokens: OPENAI.max_tokens
     }
 
-    return fetch('https://api.openai.com/v1/completions', {
+    return fetch(baseUri, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + OPENAI.api_key
       },
-      body: JSON.stringify(ChatGPT)
+      body: JSON.stringify(requestBody)
     })
   }
 
