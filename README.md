@@ -51,7 +51,7 @@ tinymce.init({
   },
 
   // 2. Configure the ChatGPT plugin
-  chatgpt: {
+  openai: {
     apiKey: "sk-yourapikeyhere", // Your OpenAI API key
     model: "text-davinci-003",
     temperature: 0.5,
