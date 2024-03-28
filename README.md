@@ -1,4 +1,4 @@
-# TinyMCE 6.x ChatGPT Plugin
+# TinyMCE ChatGPT Plugin
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/logo-tinyopen.svg" alt="Logo TinyMCE ChatGPT Plugin"></p>
 
@@ -7,7 +7,7 @@
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hy/The-3Labs-Team/tinymce-chatgpt-plugin?label=downloads)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1737eafb663973324bc8/maintainability)](https://codeclimate.com/github/The-3Labs-Team/tinymce-chatgpt-plugin/maintainability)
 
-This plugin integrates ChatGPT within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
+This plugin integrates ChatGPT (or your OpenAI compatible LLM) within TinyMCE, allowing you to generate realistic and creative text with the push of a button.
 
 <p align="center"><img src="https://github.com/the-3labs-team/tinymce-chatgpt-plugin/raw/HEAD/art/demo.gif" alt="TinyMCE Demo Gif"></p>
 
@@ -19,13 +19,12 @@ ChatGPT is a powerful tool that can help you improve your productivity and the q
 
 ## Features
 
-Support custom prompts defined by you!
-Generates realistic and creative text with the push of a button
-Can be used to generate a variety of text formats
-Can be used to translate languages
-Can be used to write different types of creative content
-Can be used to answer your questions in an informative way
-Anything what ChatGPT can handle
+- 🤖 OpenAI and Custom LLM OpenAI compatible
+- ⚙️ Support custom prompts defined by you!
+- 🧑‍🎨 Generates realistic and creative text with the push of a button
+- 🧬 Can be used to generate a variety of text formats
+- 🈷️ Can be used to translate languages
+- 🙋 Can be used to answer your questions in an informative way
 
 | :warning: WARNING                                                                                                                                         |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +32,7 @@ Anything what ChatGPT can handle
 
 ## Requirements
 
-- TinyMCE 6.0 or later
+- TinyMCE 6.0 or 7.8 or later
 - ChatGPT API key ([get one](https://openai.com))
 
 ## Installation
@@ -47,13 +46,13 @@ tinymce.init({
   // 1. Add the plugin to the list of external plugins
   external_plugins: {
     chatgpt:
-      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js",
+      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.min.js",
   },
 
   // 2. Configure the ChatGPT plugin
-  chatgpt: {
+  openai: {
     apiKey: "sk-yourapikeyhere", // Your OpenAI API key
-    model: "text-davinci-003",
+    model: "gpt-3.5-turbo",
     temperature: 0.5,
     maxTokens: 150,
     prompts: [
@@ -62,6 +61,8 @@ tinymce.init({
       "Proofread",
       "Write a blog post about",
     ],
+    // Optional: Add your custom LLM
+    // baseUri: "https://your-llm-endpoint.com",
   },
 
   // 3. Add the ChatGPT button to the toolbar
@@ -78,13 +79,13 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
     // 1. Add the plugin to the list of external plugins
     'external_plugins' => [
-        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@1/dist/chatgpt.min.js'
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.min.js'
     ],
 
     // 2. Configure the plugin
     'openai' => [
         'api_key' => 'sk-yourapikeyhere', // Your OpenAI API key
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo',
         'temperature' => 0.5,
         'max_tokens' => 150,
         'prompts' => [
@@ -92,7 +93,9 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
             'Summarize',
             'Proofread',
             'Write a blog post about',
-        ]
+        ],
+        // Optional: Add your custom LLM
+        // 'base_uri' => 'https://your-llm-endpoint.com',
     ],
 
 ],
