@@ -47,7 +47,7 @@ tinymce.init({
   // 1. Add the plugin to the list of external plugins
   external_plugins: {
     chatgpt:
-      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.min.js",
+      "https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.js",
   },
 
   // 2. Configure the ChatGPT plugin
@@ -80,7 +80,7 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
     // 1. Add the plugin to the list of external plugins
     'external_plugins' => [
-        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.min.js'
+        'chatgpt' => 'https://cdn.jsdelivr.net/gh/The-3Labs-Team/tinymce-chatgpt-plugin@2/dist/chatgpt.js'
     ],
 
     // 2. Configure the plugin
