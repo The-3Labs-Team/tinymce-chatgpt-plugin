@@ -106,3 +106,9 @@ If you are using our [TinyMCE Laravel Nova Package 4](https://github.com/murderc
 
 //...
 ```
+
+### Breaking Changes from v1 to v2
+
+- We are using the new `/chat/completions` endpoint from OpenAI
+- The `model` default now must be a chat model, like `gpt-3.5-turbo`
+- If you want to use the old `/completion` endpoint, you can use the `baseUri` option to set your custom LLM endpoint like `https://api.openai.com/v1/completions`
