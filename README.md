@@ -52,10 +52,10 @@ tinymce.init({
 
   // 2. Configure the ChatGPT plugin
   openai: {
-    apiKey: "sk-yourapikeyhere", // Your OpenAI API key
+    api_key: "sk-yourapikeyhere", // Your OpenAI API key
     model: "gpt-3.5-turbo",
     temperature: 0.5,
-    maxTokens: 150,
+    max_tokens: 150,
     prompts: [
       "Translate from English to Italian",
       "Summarize",
