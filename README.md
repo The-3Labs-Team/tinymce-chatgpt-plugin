@@ -32,8 +32,9 @@ ChatGPT is a powerful tool that can help you improve your productivity and the q
 
 ## Requirements
 
-- TinyMCE 6.0 or 7.8 or later
-- ChatGPT API key ([get one](https://openai.com))
+- TinyMCE 6|7 or later
+- OpenAI API key ([get one here](https://openai.com))
+- (Optional) Custom LLM API
 
 ## Installation
 
